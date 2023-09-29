@@ -4,6 +4,9 @@ from rest_framework import status
 from .models import ProductData
 from .serializers import ProductSerializers  # Import your ProductSerializers
 
+class Home(APIView):
+    def get(self, request):
+        return Response("This is home")
 
 class ProductList(APIView):
     """
