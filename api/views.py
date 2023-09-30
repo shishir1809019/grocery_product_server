@@ -2,16 +2,13 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import ProductData
-from .serializers import ProductSerializers  # Import your ProductSerializers
+from .serializers import ProductSerializers 
 
 class Home(APIView):
     def get(self, request):
         return Response("This is home")
 
 class ProductList(APIView):
-    """
-    List all products or create a new product.
-    """
     def get(self, request, format=None):
         products = ProductData.objects.all()
         serializer = ProductSerializers(products, many=True)
